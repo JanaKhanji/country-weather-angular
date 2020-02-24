@@ -1,0 +1,20 @@
+<div class="container bg-light">
+  <br>
+  <nav class="navbar navbar-primary bg-dark">
+    <input class="form-control mr-sm-2" type="text" placeholder="country name" aria-label="Search"
+      [(ngModel)]="countryName" (keyup.enter)=getcities()>
+
+  </nav>
+  <br>
+  <div *ngIf="message">
+    <p>{{message}}</p>
+  </div>
+  <div>
+    <ul class="list-group">
+      <a *ngFor='let x of cities' href="#" class="list-group-item list-group-item-action"
+        [class.active]="x === selectedcity" (click)="onSelect(x)">
+        {{x.city}}
+      </a>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<cityinfo></cityinfo>
+
+<empty-weather *ngIf='!city ; else elseBlock'> </empty-weather>
+<ng-template #elseBlock>
+    <div *ngIf="weathers">
+        <div *ngFor='let item of weathers.list'>
+            <div class="card w-90" style="margin:5px;" *ngIf='item.dt_txt.substring(11,13)==09'>
+                <div class="row">
+                    <div class="card-image">
+                        <img [src]="'http://openweathermap.org/img/wn/' + item.weather[0].icon.toString() + '@2x.png'"
+                            class="card-img" alt="...">
+                    </div>
+                    <div class="card-body col-8">
+                        <h5 class="card-title">{{item.dt_txt.substring(0,10)}}</h5>
+                        <p class="card-text">temp : {{(item.main.temp-273).toFixed(2)}}</p>
+                        <p class="card-text">feels : {{(item.main.feels_like-273).toFixed(2)}}</p>
+                        <p class="card-text">desc : {{item.weather[0].description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

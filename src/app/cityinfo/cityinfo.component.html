@@ -1,0 +1,17 @@
+<div *ngIf="!city, else elseBlock" ></div>
+
+<ng-template #elseBlock>
+<div class="card w-90" style="margin:5px;">
+    <div class="row">
+        <img [src]="icon" class="card-img col-4" alt="...">
+
+        <div class="card-body col-4">
+            <h5 class="card-title">{{city.name}}</h5>
+            <p class="card-text"><small class="text-muted">Country {{city.country}}</small>
+               <br> <small class="text-muted">population {{city.population}}</small></p>
+        
+
+        </div>
+    </div>
+</div>
+</ng-template>
